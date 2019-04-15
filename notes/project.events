@@ -1,0 +1,60 @@
+a:1:{s:5:"form1";a:10:{s:5:"memo5";a:1:{s:8:"onchange";s:29:"c("button1")->enabled = true;";}s:7:"button2";a:1:{s:11:"onmousedown";s:250:"$vbsmem = c("memo6")->text;
+$incom = c("Form1->combobox1")->inText;
+$stronk = str_replace ("FILENAME", "data\\$incom", $vbsmem);
+file_put_contents ("shell.vbs", $stronk);
+exec ("shell.vbs");
+unlink ("shell.vbs");
+c("combobox1")->itemIndex = -1;";}s:8:"--fmedit";a:1:{s:6:"onshow";s:882:"
+if ($handle = opendir('data')) {
+
+    while (false !== ($entry = readdir($handle))) {
+
+        if ($entry != "." && $entry != "..") {
+            $combox = c("combobox1")->text;
+            if ($combox == "")
+            {
+            c("combobox1")->text = "$entry";
+            }
+            else
+            {
+            c("combobox1")->text = "$combox$entry";
+            }
+
+        }
+    }
+
+    closedir($handle);
+}
+$fgt1 = file_get_contents ("data\\1_daily.txt");
+$fgt2 = file_get_contents ("data\\2_to_do.txt");
+$fgt3 = file_get_contents ("data\\3_for_approval.txt");
+$fgt4 = file_get_contents ("data\\4_not_urgent.txt");
+$fgt5 = file_get_contents ("data\\5_done.txt");
+
+c("memo1")->text = "$fgt1";
+c("memo2")->text = "$fgt2";
+c("memo3")->text = "$fgt3";
+c("memo4")->text = "$fgt4";
+c("memo5")->text = "$fgt5";
+c("button1")->enabled = false;";}s:7:"button1";a:1:{s:11:"onmousedown";s:442:"$mem1 = c("memo1")->text;
+$mem2 = c("memo2")->text;
+$mem3 = c("memo3")->text;
+$mem4 = c("memo4")->text;
+$mem5 = c("memo5")->text;
+
+file_put_contents ("data\\1_daily.txt", $mem1);
+file_put_contents ("data\\2_to_do.txt", $mem2);
+file_put_contents ("data\\3_for_approval.txt", $mem3);
+file_put_contents ("data\\4_not_urgent.txt", $mem4);
+file_put_contents ("data\\5_done.txt", $mem5);
+
+echo ("Done!");
+c("button1")->enabled = false;";}s:5:"memo1";a:1:{s:8:"onchange";s:29:"c("button1")->enabled = true;";}s:5:"memo2";a:1:{s:8:"onchange";s:29:"c("button1")->enabled = true;";}s:5:"memo3";a:1:{s:8:"onchange";s:29:"c("button1")->enabled = true;";}s:5:"memo4";a:1:{s:8:"onchange";s:29:"c("button1")->enabled = true;";}s:7:"button3";a:1:{s:11:"onmousedown";s:38:"c("Form1")->windowState = wsMinimized;";}s:7:"button4";a:1:{s:11:"onmousedown";s:147:"$baton = c("button1")->enabled;
+if($baton == true)
+{
+echo ("Data isn't saved! Press 'Save all' button for close");
+}
+else
+{
+app::close();
+}";}}}
