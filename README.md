@@ -12,6 +12,6 @@ Save your notes in simple way
 - нельзя закрыть программу без сохранения<br>
 - печать любого раздела<br>
 # Contact
-E-mail: alex@walrider.ru<br>
+E-mail: alex@awmail.biz<br>
 This project is a personal development, please respect its philosophy and don’t use it for evil purposes!<br>
 Notepad is under GNU GPL v3.<br>
